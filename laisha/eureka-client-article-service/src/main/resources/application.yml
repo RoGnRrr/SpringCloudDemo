@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: eureka-client-article-service
+
+server:
+  port: 8082
