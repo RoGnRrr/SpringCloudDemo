@@ -10,6 +10,7 @@ public class UserController {
     @ResponseBody
     @GetMapping("user/hello")
     public String hello() {
+        System.out.println("hello");
         return "hello";
     }
 

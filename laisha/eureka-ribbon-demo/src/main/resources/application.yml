@@ -21,7 +21,7 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     # 表示euerka服务端至上一次收到euerka客户端的心跳之后,等待下一次心跳的超时时间,在这个时间内若没收到下一次心跳,则移除该instance,默认90秒,现在设置为5秒
     lease-expiration-duration-in-seconds: 5
-    metadata-map:
-      rwj:
-        RoGnRrr
 
+eureka-client-user-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.rrr.eurekaribbondemo.MyRule
