@@ -1,8 +1,9 @@
 spring:
   application:
     name: eureka-client-user-service
-server:
-  port: 8081
+  profiles:
+    active: test2
+
 eureka:
   client:
     service-url:
