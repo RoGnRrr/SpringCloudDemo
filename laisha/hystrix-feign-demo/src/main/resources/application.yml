@@ -30,3 +30,6 @@ logging:
           api:
             client:
               UserRemoteClient: DEBUG
+feign:
+  hystrix:
+    enabled: true
