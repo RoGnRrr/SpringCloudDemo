@@ -1,9 +1,9 @@
 spring:
   application:
-    name: eureka-feign
+    name: hystrix-feign-demo
 
 server:
-  port: 8080
+  port: 1005
 
 eureka:
   client:
@@ -22,14 +22,6 @@ eureka:
     # 表示euerka服务端至上一次收到euerka客户端的心跳之后,等待下一次心跳的超时时间,在这个时间内若没收到下一次心跳,则移除该instance,默认90秒,现在设置为5秒
     lease-expiration-duration-in-seconds: 5
 
-logging:
-  level:
-    com:
-      rrr:
-        eurekafeign:
-          api:
-            client:
-              UserRemoteClient: DEBUG
 feign:
   hystrix:
     enabled: true
