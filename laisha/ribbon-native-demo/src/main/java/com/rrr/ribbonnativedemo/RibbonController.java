@@ -27,6 +27,7 @@ public class RibbonController {
         serverList.add(new Server("localhost", 8081));
         serverList.add(new Server("localhost", 8083));
 
+        // 负载算法
         ILoadBalancer loadBalancer = LoadBalancerBuilder.newBuilder().buildFixedServerListLoadBalancer(serverList);
         for (int i = 0; i < 5; i++) {
             String result = LoadBalancerCommand.<String>builder().withLoadBalancer(loadBalancer).build()
