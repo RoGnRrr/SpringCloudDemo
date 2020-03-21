@@ -10,4 +10,9 @@ public class UserRemoteClientFallback implements UserRemoteClient {
         return "fail";
     }
 
+    @Override
+    public String list() {
+        return "fail";
+    }
+
 }

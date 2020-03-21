@@ -18,5 +18,10 @@ public class UserRemoteController {
         return userRemoteClient.hello();
     }
 
+    @ResponseBody
+    @GetMapping("/callList")
+    public String callList() {
+        return userRemoteClient.list();
+    }
 
 }

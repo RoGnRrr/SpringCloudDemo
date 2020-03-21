@@ -9,4 +9,7 @@ public interface UserRemoteClient {
     @GetMapping("/user/hello")
     String hello();
 
+    @GetMapping("/user/list")
+    String list();
+
 }

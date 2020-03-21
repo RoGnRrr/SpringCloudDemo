@@ -14,4 +14,11 @@ public class UserController {
         return "hello";
     }
 
+    @ResponseBody
+    @GetMapping("user/list")
+    public String list() {
+        System.out.println("list");
+        return "list";
+    }
+
 }
