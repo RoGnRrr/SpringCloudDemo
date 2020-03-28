@@ -7,14 +7,14 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://rongweijie:123456@192.168.1.12:8761/eureka/,http://rongweijie:123456@192.168.1.12:8762/eureka/
+      defaultZone: http://rongweijie:123456@192.168.1.30:8761/eureka/,http://rongweijie:123456@192.168.1.30:8762/eureka/
     healthcheck:
       #开启健康检查,需要导入actuator依赖包
       enabled: true
   instance:
     #通过ip地址注册
     prefer-ip-address: true
-    ip-address: 192.168.1.12
+    ip-address: 192.168.1.30
     instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
     # euerka客户端发送给euerka客户端的心跳频率,默认30秒,现在设置为5秒
     lease-renewal-interval-in-seconds: 5

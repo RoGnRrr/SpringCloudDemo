@@ -8,18 +8,18 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://rongweijie:123456@192.168.1.12:8761/eureka/,http://rongweijie:123456@192.168.1.12:8762/eureka/
+      defaultZone: http://rongweijie:123456@192.168.1.30:8761/eureka/,http://rongweijie:123456@192.168.1.30:8762/eureka/
     healthcheck:
-      #¿ªÆô½¡¿µ¼ì²é,ĞèÒªµ¼ÈëactuatorÒÀÀµ°ü
+      #ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½actuatorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
       enabled: true
   instance:
-    #Í¨¹ıipµØÖ·×¢²á
+    #Í¨ï¿½ï¿½ipï¿½ï¿½Ö·×¢ï¿½ï¿½
     prefer-ip-address: true
-    ip-address: 192.168.1.12
+    ip-address: 192.168.1.30
     instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
-    # euerka¿Í»§¶Ë·¢ËÍ¸øeuerka¿Í»§¶ËµÄĞÄÌøÆµÂÊ,Ä¬ÈÏ30Ãë,ÏÖÔÚÉèÖÃÎª5Ãë
+    # euerkaï¿½Í»ï¿½ï¿½Ë·ï¿½ï¿½Í¸ï¿½euerkaï¿½Í»ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½,Ä¬ï¿½ï¿½30ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª5ï¿½ï¿½
     lease-renewal-interval-in-seconds: 5
-    # ±íÊ¾euerka·şÎñ¶ËÖÁÉÏÒ»´ÎÊÕµ½euerka¿Í»§¶ËµÄĞÄÌøÖ®ºó,µÈ´ıÏÂÒ»´ÎĞÄÌøµÄ³¬Ê±Ê±¼ä,ÔÚÕâ¸öÊ±¼äÄÚÈôÃ»ÊÕµ½ÏÂÒ»´ÎĞÄÌø,ÔòÒÆ³ı¸Ãinstance,Ä¬ÈÏ90Ãë,ÏÖÔÚÉèÖÃÎª5Ãë
+    # ï¿½ï¿½Ê¾euerkaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Õµï¿½euerkaï¿½Í»ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½,ï¿½È´ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ê±Ê±ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Õµï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½instance,Ä¬ï¿½ï¿½90ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª5ï¿½ï¿½
     lease-expiration-duration-in-seconds: 5
 
 eureka-client-user-service:
