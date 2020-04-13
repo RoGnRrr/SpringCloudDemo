@@ -2,10 +2,63 @@ server:
   port: 20001
 
 spring:
+  application:
+    name: eureka-gateway
+  redis:
+    database: 0
+    host: 127.0.0.1
+    password: 123456
+    port: 6379
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true #开启指定服务器名称访问
+          lower-case-service-id: true #转发服务名改为小写
       routes:
-        - id: path_route
+        - id: test
           uri: http://www.weibo.com
           predicates:
-          - Path=/course/**
+          - Path=/6321751056
+        - id: path_route1
+          uri: lb://eureka-client-user-service
+          predicates:
+          - Path=/eureka-client-user-service/**
+          filters:
+          - name: RequestRateLimiter
+            args:
+              key-resolver: '#{@ipKeyResolver}'
+              redis-rate-limiter.replenishRate: 1
+              redis-rate-limiter.burstCapacity: 1
+          - StripPrefix=1
+        - id: path_route2
+          uri: lb://hystrix-feign-demo
+          predicates:
+          - Path=/hystrix-feign-demo/**
+        - id: path_route3
+          uri: http://c.biancheng.net
+          predicates:
+          - name: CheckAuth
+            args:
+              name: rongweijie
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://rongweijie:123456@192.168.1.30:8761/eureka/,http://rongweijie:123456@192.168.1.30:8762/eureka/
+    healthcheck:
+      #开启健康检查,需要导入actuator依赖包
+      enabled: true
+  instance:
+    #通过ip地址注册
+    prefer-ip-address: true
+    ip-address: 192.168.1.30
+    instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
+    # euerka客户端发送给euerka客户端的心跳频率,默认30秒,现在设置为5秒
+    lease-renewal-interval-in-seconds: 5
+    # 表示euerka服务端至上一次收到euerka客户端的心跳之后,等待下一次心跳的超时时间,在这个时间内若没收到下一次心跳,则移除该instance,默认90秒,现在设置为5秒
+    lease-expiration-duration-in-seconds: 5
+
+
+
+

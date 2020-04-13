@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 
     @ResponseBody
-    @GetMapping("user/hello")
+        @GetMapping("user/hello")
     public String hello() {
         System.out.println("hello");
         return "hello";
